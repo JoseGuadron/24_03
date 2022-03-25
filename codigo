@@ -92,7 +92,13 @@
 
 
 
-
+                    var datos = datos;
+                    datos.forEach(function(dato, index){
+                        var li = document.createElement("li");
+                        li.classList.add("li-" + (index + 1), "pointer");
+                        li.setAttribute("style", "list-style: none;");
+                        li.innerText= dato;
+                    });
 
 
 
@@ -108,4 +114,5 @@
                                     </div>
                                 </div>
                             </div>-->
-                        
+                            divMain.classList.add("row", "justify-content-end", "text-right", "mb-4", "mt-2");
+                            , "bg-gradient-info", "text-white"

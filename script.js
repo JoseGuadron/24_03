@@ -82,10 +82,7 @@ function crearContenedorRespuestas(respuesta){
 }
 
 function crearElementoLista(texto, index){
-    var li = document.createElement("li");
-    li.classList.add("li-" + (index + 1), "pointer");
-    li.setAttribute("style", "list-style: none;");
-    li.innerText= texto;
+    
     li.addEventListener("click",function(){
         switch(index + 1){
             case 1:
@@ -133,3 +130,4 @@ function crearPreguntaLi(){
     });
 }
 
+window.onload = crearPreguntaLi;
