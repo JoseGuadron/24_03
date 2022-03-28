@@ -1,19 +1,35 @@
+//debugger
 const categorias = ["Subcripciones", "Consultas", "Publicaciones", "Nosotros"];
 
 const subPreguntas = [  "¿Cuál es el proceso para subscribirme?", 
                         "¿Cuál es el precio de la subscripción?", 
                         "¿Cuales son los beneficios de subscribirme?", 
-                        "¿Con que frecuencia se realiza el cobro de la subscripción?"];
+                        "¿Con que frecuencia se realiza el cobro de la subscripción?"]
+
+const subRespuestas = [ "Respuesta sub 1", 
+                        "Respuesta sub 2", 
+                        "Respuesta sub 3", 
+                        "Respuesta sub 4"]
 
 const conPreguntas = [  "Pregunta con 1", 
                         "Pregunta con 2", 
                         "Pregunta con 3", 
                         "Pregunta con 4"]
 
+const conRespuestas = [ "Respuesta con 1", 
+                        "Respuesta con 2", 
+                        "Respuesta con 3", 
+                        "Respuesta con 4"]
+
 const puPreguntas = [   "Pregunta pu 1", 
                         "Pregunta pu 2", 
                         "Pregunta pu 3", 
                         "Pregunta pu 4"]
+
+const puRespuestas = [  "Respuesta no 1", 
+                        "Respuesta no 2", 
+                        "Respuesta no 3", 
+                        "Respuesta no 4"]
                         
 const noPreguntas = [   "Pregunta no 1", 
                         "Pregunta no 2", 
@@ -30,7 +46,7 @@ function borrarInicio(){
 function definirHora(informacion){
     var divHora = document.createElement("div");
     divHora.classList.add("d-flex", "align-items-center", "text-sm", "opacity-6");
-    informacion.append(divHora);
+    informacion.appendChild(divHora);
     informacion.setAttribute("style", "margin-bottom: 0;")
     var iElemento = document.createElement("i");
     iElemento.classList.add("material-icons", "text-sm", "me-1" );
@@ -53,6 +69,18 @@ function definirHora(informacion){
     var small = document.createElement("small");
     small.innerText = ' ' + hours + ':' + minutes + ' ' + newformat;
     iElemento.appendChild(small);
+}
+
+function borrarInfo(dato){
+    var borrarP = document.getElementById("preguntas");
+    borrarP.removeAttribute("id");
+    var liAntiguos = document.querySelectorAll('li');
+    liAntiguos.forEach(function(li, index){
+        document.getElementById("li-"+ (index + 1)).remove();
+    });
+    var seleccionado = document.getElementById("dato");
+    seleccionado.innerText = dato;
+    seleccionado.removeAttribute("id");
 }
 
 function bot(pregunta){
@@ -79,7 +107,6 @@ function bot(pregunta){
     document.getElementById("chat-body").appendChild(divMain);
 }
 
-
 function usuario(){
     //Div principal
     var divMain = document.createElement("div");
@@ -96,9 +123,9 @@ function usuario(){
     //Div texto
     var p = document.createElement("p");
     p.setAttribute("style", "margin-bottom:0;")
+    p.setAttribute("id", "dato");
     p.innerText = "";
     div2.appendChild(p);
-    
     document.getElementById("chat-body").appendChild(divMain);
     
     categorias.forEach(function(dato, index){
@@ -112,60 +139,26 @@ function usuario(){
 
             switch(index + 1){
                 case 1:
-                 bot(dato + ": Selecciona una opción para brindarte ayuda.");
-                 var liActual = document.getElementById("li-1");
-                 liActual.classList.remove("pointer");
-                 liActual.setAttribute("disable", "true");
-                 liActual.removeAttribute("id");
-                 document.getElementById("li-2").remove();
-                 document.getElementById("li-3").remove();
-                 document.getElementById("li-4").remove();
-                 var borrarP = document.getElementById("preguntas");
-                 borrarP.removeAttribute("id");
-                 usuario1(subPreguntas);
+                    bot(dato + ": Selecciona una opción para brindarte ayuda.");
+                    borrarInfo(dato);
+                    usuario1(subPreguntas);
                 break;
                 case 2:
                     bot(dato + ": Selecciona una opción para brindarte ayuda.");
-                    var liActual = document.getElementById("li-2");
-                    liActual.classList.remove("pointer");
-                    liActual.setAttribute("disable", "true");
-                    liActual.removeAttribute("id");
-                    document.getElementById("li-1").remove();
-                    document.getElementById("li-3").remove();
-                    document.getElementById("li-4").remove();
-                    var borrarP = document.getElementById("preguntas");
-                    borrarP.removeAttribute("id");
+                    borrarInfo(dato);
                     usuario1(conPreguntas);
                 break;
                 case 3:
                     bot(dato + ": Selecciona una opción para brindarte ayuda.");
-                    var liActual = document.getElementById("li-3");
-                    liActual.classList.remove("pointer");
-                    liActual.setAttribute("disable", "true");
-                    liActual.removeAttribute("id");
-                    document.getElementById("li-1").remove();
-                    document.getElementById("li-2").remove();
-                    document.getElementById("li-4").remove();
-                    var borrarP = document.getElementById("preguntas");
-                    borrarP.removeAttribute("id");
+                    borrarInfo(dato);
                     usuario1(puPreguntas);
                 break;
                 case 4:
                     bot(dato + ": Selecciona una opción para brindarte ayuda.");
-                    var liActual = document.getElementById("li-4");
-                    liActual.classList.remove("pointer");
-                    liActual.setAttribute("disable", "true");
-                    liActual.removeAttribute("id");
-                    document.getElementById("li-1").remove();
-                    document.getElementById("li-2").remove();
-                    document.getElementById("li-3").remove();
-                    var borrarP = document.getElementById("preguntas");
-                    borrarP.removeAttribute("id");
+                    borrarInfo(dato);
                     usuario1(noPreguntas);
                 break;
-    
             }
-            
         });
     });
 
@@ -198,78 +191,46 @@ function usuario1(array){
     div2.classList.add("card-body", "p-2");
     div2.setAttribute("id", "preguntas");
     div1.appendChild(div2);
+    var informacion= document.createElement("p");  
     //Div texto
     var p = document.createElement("p");
     p.setAttribute("style", "margin-bottom:0;")
+    p.setAttribute("id", "dato");
     p.innerText = "";
-    div2.appendChild(p);
-    var informacion= document.createElement("p");
+    div2.appendChild(p);  
+    div2.appendChild(informacion);
+    definirHora(informacion);
     document.getElementById("chat-body").appendChild(divMain);
-    
+
+
     array.forEach(function(dato, index){
         var li = document.createElement("li");
         li.classList.add("li-" + (index + 1), "pointer", "btn-style");
         li.setAttribute("id", "li-" + (index + 1));
         li.setAttribute("style", "list-style: none;");
         li.innerText= dato;
-        document.getElementById("preguntas").appendChild(li);
+        document.getElementById("dato").appendChild(li);
         li.addEventListener("click",function(){
-            if (dato == subPreguntas[0]){
-                bot("Debes acceder a la pagina de subcripciones");
-                document.getElementById("li-1").remove();
-                document.getElementById("li-2").remove();
-                document.getElementById("li-3").remove();
-                document.getElementById("li-4").remove();
-                var borrarP = document.getElementById("preguntas");
-                var despues = document.createElement("p");
-                despues.innerText = dato;
-                borrarP.appendChild(despues);
-                document.getElementById("preguntas").appendChild(informacion); 
-                definirHora(informacion);
-                borrarP.removeAttribute("id");
+            if(array == subPreguntas){
+                bot(subRespuestas[index]);
+                borrarInfo(dato);
                 insertarButtonConsulta();
-            }else if(dato == subPreguntas[1]){
-                bot("Respuesta: ¿Cuál es el precio de la subscripción?");
-                var liActual = document.getElementById("li-2");
-                liActual.classList.remove("pointer");
-                liActual.setAttribute("disable", "true");
-                liActual.removeAttribute("id");
-                document.getElementById("li-1").remove();
-                document.getElementById("li-3").remove();
-                document.getElementById("li-4").remove();
-                var borrarP = document.getElementById("preguntas");
-                borrarP.removeAttribute("id");
+            }else if(array == conPreguntas){
+                bot(conPreguntas[index]);
+                borrarInfo(dato);
                 insertarButtonConsulta();
-            }else if(dato == subPreguntas[2]){
-                bot("Respuesta: ¿Cuales son los beneficios de subscribirme?");
-                var liActual = document.getElementById("li-3");
-                liActual.classList.remove("pointer");
-                liActual.setAttribute("disable", "true");
-                liActual.removeAttribute("id");
-                document.getElementById("li-1").remove();
-                document.getElementById("li-2").remove();
-                document.getElementById("li-4").remove();
-                var borrarP = document.getElementById("preguntas");
-                borrarP.removeAttribute("id");
+            }else if(array == puPreguntas){
+                bot(puPreguntas[index]);
+                borrarInfo(dato);
                 insertarButtonConsulta();
-            }else if(dato == subPreguntas[3]){
-                bot("Respuesta: ¿Con que frecuencia se realiza el cobro de la subscripción?");
-                var liActual = document.getElementById("li-4");
-                liActual.classList.remove("pointer");
-                liActual.setAttribute("disable", "true");
-                liActual.removeAttribute("id");
-                document.getElementById("li-1").remove();
-                document.getElementById("li-2").remove();
-                document.getElementById("li-3").remove();
-                var borrarP = document.getElementById("preguntas");
-                borrarP.removeAttribute("id");
+            }else if(array == noPreguntas){
+                bot(noPreguntas[index]);
+                borrarInfo(dato);
                 insertarButtonConsulta();
-                
             }
         });
     
     });
-    
 }
 
 
