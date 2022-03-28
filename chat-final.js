@@ -1,5 +1,5 @@
 
-const categorias = ["Subcripciones", "Consultas", "Publicaciones", "Nosotros"];
+const categorias = ["Subcripciones", "Contactos", "Nosotros", "Noticias"];
 
 const subPreguntas = [  "¿Cuál es el proceso para subscribirme?", 
                         "¿Cuál es el precio de la subscripción?", 
@@ -11,35 +11,31 @@ const subRespuestas = [ "<h6>Proceso de suscripción:</h6><ol><li>Realizar el pa
                         "<h6>Beneficios:</h6>Poder descargar cualquier edicion de la gaceta(suscripción) y recibirlos hasta la puerta de tu casa(Por envío)", 
                         "<h6>Tipos de pago:</h6><ul><li>Semestral</li><li>Anual</li></ul>"]
 
-const conPreguntas = [  "Pregunta con 1", 
-                        "Pregunta con 2", 
-                        "Pregunta con 3", 
-                        "Pregunta con 4"]
+const conPreguntas = [  "¿Cómo puedo comunicarse con la gaceta?", 
+                        "Cuáles son los horarios de atención?", 
+                        "¿Dónde estamos ubicados?"]
 
-const conRespuestas = [ "Respuesta con 1", 
-                        "Respuesta con 2", 
-                        "Respuesta con 3", 
-                        "Respuesta con 4"]
 
-const puPreguntas = [   "Pregunta pu 1", 
-                        "Pregunta pu 2", 
-                        "Pregunta pu 3", 
-                        "Pregunta pu 4"]
+const conRespuestas = [ "Puedes comunicarte con nosotros a traves de los números <ul><li><a href='tel:+505 2228-3791'>+505 2228-3791</a></li><li><a href='tel:+505 2222-7344'>+505 2222-7344</a></li></ul> También puedes hacerlo mediante el correo electronico <a href='mailto:infolagaceta@sepres.gob.ni'>infolagaceta@sepres.gob.ni</a>", 
+                        "Los horarios de atencion son desde las 8:00 am hasta 4:00 pm", 
+                        "Puedes visitarnos en las oficinas que se encuentran ubicadas en: Avenida de Bolívar a Chávez, Entrada por parqueo de SERVIGOB, Delegación INSS José Benito Escobar Managua, Nicaragua, 11107. <br><div class='ratio ratio-16x9'><iframe frameborder='0' style='border:0; padding:1rem;' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBcyaGsnPXET3u4jeqQp9hs_MMaT7g4CWE&amp;q=place_id:ChIJLR2-jw1WcY8RO9l2kakC2-E'></iframe></div>"]
 
-const puRespuestas = [  "Respuesta pu 1", 
-                        "Respuesta pu 2", 
-                        "Respuesta pu 3", 
-                        "Respuesta pu 4"]
+const nosPreguntas = [  "¿Quiénes somos?", 
+                        "¿En que año se fundó La Gaceta?"]
+
+const nosRespuestas = [ "La Gaceta Diario Oficial del gobierno de la republica de Nicaragua encargados de la publicidad de leyes, decretos y acuerdos", 
+                        "La Gaceta se constituyó en el inicio mismo del periodismo impreso en Nicaragua, luego de la introducción de la imprenta, en el año 1830. El 19 de enero de 1830, el gobierno puso en funcionamiento la Imprenta del Gobierno, ubicada en la ciudad de Granada y la primera edición de La Gaceta de Nicaragua, fue publicada el 31 de agosto de 1830, convirtiéndose en el primer periódico que circuló en el país, aunque probablemente no logró pasar de una primera edición"]
                         
-const noPreguntas = [   "Pregunta no 1", 
-                        "Pregunta no 2", 
-                        "Pregunta no 3", 
-                        "Pregunta no 4"]
+const noPreguntas = [   "¿Podría agregar noticias a la pagina de la gaceta como usuario?", 
+                        "¿Puedo recibir las noticias en mi correo?", 
+                        "¿Con qué frequencia se actualizan las noticias?", 
+                        "¿Cuáles son las fuentes de las noticas mostradas en la página?"]
 
-const noRespuestas = [  "Respuesta no 1", 
-                        "Respuesta no 2", 
-                        "Respuesta no 3", 
-                        "Respuesta no 4"]
+
+const noRespuestas = [  "No. Solamente el personal autorizado de La Gaceta puede agregar noticias a nuestro sitio.", 
+                        "No. Actualmente no contamos con un servicio de newsletter. La única forma de poder ver las noticias es desde nuestra página.", 
+                        "Las noticias son actualizadas por nuestro personal periodicamente(Según la necesidad).", 
+                        "Las noticias mostradas en nuestro sitio web son de organismos gubernamentes aliados."]
 
 
 function definirHora(informacion){
@@ -75,7 +71,6 @@ function borrarInfo(dato){
     borrarP.removeAttribute("id");
     var liAntiguos = document.querySelectorAll('li.pointer');
     liAntiguos.forEach(function(li, index){
-        console.log("li-"+ (index + 1));
         var borrarLi = document.getElementById("li-"+ (index + 1));
         borrarLi.remove();
     });
@@ -152,7 +147,7 @@ function usuario(){
                 case 3:
                     bot(dato + ": Selecciona una opción para brindarte ayuda.");
                     borrarInfo(dato);
-                    usuario1(puPreguntas);
+                    usuario1(nosPreguntas);
                 break;
                 case 4:
                     bot(dato + ": Selecciona una opción para brindarte ayuda.");
@@ -306,8 +301,8 @@ function usuario1(array){
                 borrarInfo(dato);
                 nuevaConsulta();
                 terminarConsulta();
-            }else if(array == puPreguntas){
-                bot(puRespuestas[index]);
+            }else if(array == nosPreguntas){
+                bot(nosRespuestas[index]);
                 borrarInfo(dato);
                 nuevaConsulta();
                 terminarConsulta();
@@ -317,9 +312,9 @@ function usuario1(array){
                 nuevaConsulta();
                 terminarConsulta();
             }
-            
         });
     });
+    
 }
 
 function iniciarConsulta(){
