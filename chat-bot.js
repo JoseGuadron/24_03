@@ -186,7 +186,8 @@ function nuevaConsulta(){
     nuevaConsulta.classList.add("btn","bg-gradient-success","btn-lg");
     nuevaConsulta.innerText= "Nueva consulta";
     document.getElementById("botones").appendChild(nuevaConsulta);
-
+    var btnNueva = document.getElementById("nuevaConsulta");
+    btnNueva.addEventListener("click", usuario);
 }
 
 function terminarConsulta(){
@@ -196,6 +197,8 @@ function terminarConsulta(){
     terminarConsulta.classList.add("btn","bg-gradient-danger","btn-lg");
     terminarConsulta.innerText= "Terminar consulta";
     document.getElementById("botones").appendChild(terminarConsulta);
+    var btnTerminar = document.getElementById("terminarConsulta");
+    btnTerminar.addEventListener("click", bot("Gracias por preferirnos."));
 }
 
 function usuario1(array){
@@ -260,11 +263,6 @@ function iniciarConsulta(){
     bot("Selecciona una opción para brindarte ayuda.");
     usuario();
 }
+
 var btnComenzar = document.getElementById("comenzar");
 btnComenzar.addEventListener("click", iniciarConsulta);
-
-var btnNueva = document.getElementById("nuevaConsulta");
-btnNueva.addEventListener("click", iniciarConsulta);
-var btnTerminar = document.getElementById("terminarConsultar");
-btnTerminar.addEventListener("click", bot("Gracias por preferirnos."));
-
