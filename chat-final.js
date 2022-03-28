@@ -1,4 +1,3 @@
-
 const categorias = ["Subcripciones", "Contactos", "Nosotros", "Noticias"];
 
 const subPreguntas = [  "¿Cuál es el proceso para subscribirme?", 
