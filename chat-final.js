@@ -77,7 +77,10 @@ function borrarInfo(dato){
     seleccionado.innerText = dato;
     seleccionado.removeAttribute("id");
 }
-
+function posicionarScroll(){
+    var div = document.getElementById('chat-body');
+    div.scrollTop = '9999';
+}
 function bot(pregunta){
     //Div principal
     var divMain = document.createElement("div");
@@ -100,6 +103,7 @@ function bot(pregunta){
     div3.appendChild(p);
     definirHora(p);
     document.getElementById("chat-body").appendChild(divMain);
+    posicionarScroll();
 }
 
 function usuario(){
@@ -160,6 +164,7 @@ function usuario(){
     var informacion= document.createElement("p");
     document.getElementById("preguntas").appendChild(informacion); 
     definirHora(informacion);
+    posicionarScroll();
     
 }
 
@@ -185,6 +190,7 @@ function mensajeFinal(){
     p.appendChild(informacion); 
     definirHora(informacion);
     document.getElementById("chat-body").appendChild(divMain);
+    posicionarScroll();
 }
 
 function nuevaConsulta(){
@@ -202,6 +208,7 @@ function nuevaConsulta(){
     var btnNueva = document.getElementById("nuevaConsulta");
     btnNueva.addEventListener("click", usuario);
     btnNueva.addEventListener("click", borrarBotones);
+    posicionarScroll();
 }
 
 function terminarConsulta(){
@@ -214,6 +221,7 @@ function terminarConsulta(){
     var btnTerminar = document.getElementById("terminarConsulta");
     btnTerminar.addEventListener("click", borrarBotones);
     btnTerminar.addEventListener("click", mensajeFinal);
+    posicionarScroll();
 }
 
 function borrarBotones(){
@@ -280,7 +288,7 @@ function usuario1(array){
             }
         });
     });
-    
+    posicionarScroll();
 }
 
 function iniciarConsulta(){

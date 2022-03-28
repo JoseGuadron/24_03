@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link id="pagestyle" href="https://test.lagaceta.gob.ni/assets/css/material-kit.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/df6ab64a0f.js" crossorigin="anonymous"></script>
 </head>
 <style>
     .pointer:hover{
@@ -60,38 +61,78 @@
         background: #d4d4d4;
     }
 
-
+    .fa-file-download{
+        font-size: 25px;
+        color: white;
+    }
 </style>
 <body>
     <!-- -------- END HEADER ------- -->
 <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-        <div class="container" >
-            <div class="row">
-                <div class="col p-6">
-                    <div class="card max-height-vh-70 min-vh-70">
-                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                            <div class="bg-gradient-info shadow-primary border-radius-lg p-3">
-                                <div class="row">
-                                    <div class="col-md-10">
-                                        <div class="d-flex align-items-center ">
+    <div class="container" >
+        <div class="row">
+            <div class="col p-6">
+                <div class="card max-height-vh-70 min-vh-70">
+                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                        <div class="bg-gradient-info shadow-primary border-radius-lg p-3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="ms-3 d-flex justify-content-left align-items-center">
                                             <img alt="Image" src="https://test.lagaceta.gob.ni/assets/img/Brand.png" width="200px" height="70px">
-                                            <div class="ms-3">
-                                            <h6 class="mb-0 d-block text-white">La Gaceta</h6>
-                                            <span class="text-sm text-white opacity-8">En linea..</span>
+                                            <div class="d-flex flex-column" style="margin-left:2rem">
+                                                <h6 class="mb-0 d-block text-white">La Gaceta</h6>
+                                                <span class="text-sm text-white opacity-8">En linea..</span>
                                             </div>
+                                        </div>
+                                        <div class="justify-content-left align-items-center">
+                                            <button id="btnDescargarPDF" type="button" class="btn m-0"><i class="fas fa-file-download"></i></button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="chat-body" class="d-flex card-body flex-column overflow-auto overflow-x-hidden">
-                        </div>
+                    </div>
+                    <div id="chat-body" class="d-flex card-body flex-column overflow-auto overflow-x-hidden">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script src="chat-final.js"></script>
+<script src="html2pdf.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  // Escuchamos el click del botón
+const $boton = document.querySelector("#btnDescargarPDF");
+    $boton.addEventListener("click", () => {
+      const $btnDescargar = document.querySelector("#chat-body")
+      const $elementoParaConvertir = $btnDescargar; // <-- Aquí puedes elegir cualquier elemento del DOM
+      html2pdf()
+          .set({
+              margin: 1,
+              filename: 'documento.pdf',
+              image: {
+                  type: 'jpeg',
+                  quality: 0.98
+              },
+              html2canvas: {
+                  scale: 3, // A mayor escala, mejores gráficos, pero más peso
+                  letterRendering: true,
+              },
+              jsPDF: {
+                  unit: "in",
+                  format: "a3",
+                  orientation: 'portrait' // landscape o portrait
+              }
+          })
+              .from($elementoParaConvertir)
+              .save()
+              .catch(err => console.log(err));
+      });
+    });
+</script>
 </body>
 </html>
