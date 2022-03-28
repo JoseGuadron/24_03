@@ -36,7 +36,7 @@ const noPreguntas = [   "Pregunta no 1",
                         "Pregunta no 3", 
                         "Pregunta no 4"]
 
-const noRespuesta = [   "Respuesta no 1", 
+const noRespuestas = [  "Respuesta no 1", 
                         "Respuesta no 2", 
                         "Respuesta no 3", 
                         "Respuesta no 4"]
@@ -226,11 +226,11 @@ function usuario1(array){
                 borrarInfo(dato);
                 insertarButtonConsulta();
             }else if(array == puPreguntas){
-                bot(puRespuesta[index]);
+                bot(puRespuestas[index]);
                 borrarInfo(dato);
                 insertarButtonConsulta();
             }else if(array == noPreguntas){
-                bot(noRespuesta[index]);
+                bot(noRespuestas[index]);
                 borrarInfo(dato);
                 insertarButtonConsulta();
             }
