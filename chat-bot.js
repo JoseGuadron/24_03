@@ -26,15 +26,21 @@ const puPreguntas = [   "Pregunta pu 1",
                         "Pregunta pu 3", 
                         "Pregunta pu 4"]
 
-const puRespuestas = [  "Respuesta no 1", 
-                        "Respuesta no 2", 
-                        "Respuesta no 3", 
-                        "Respuesta no 4"]
+const puRespuestas = [  "Respuesta pu 1", 
+                        "Respuesta pu 2", 
+                        "Respuesta pu 3", 
+                        "Respuesta pu 4"]
                         
 const noPreguntas = [   "Pregunta no 1", 
                         "Pregunta no 2", 
                         "Pregunta no 3", 
                         "Pregunta no 4"]
+
+const noRespuesta = [   "Respuesta no 1", 
+                        "Respuesta no 2", 
+                        "Respuesta no 3", 
+                        "Respuesta no 4"]
+
 
 function borrarInicio(){
     var comenzar = document.getElementById("inicio-consulta");
@@ -216,15 +222,15 @@ function usuario1(array){
                 borrarInfo(dato);
                 insertarButtonConsulta();
             }else if(array == conPreguntas){
-                bot(conPreguntas[index]);
+                bot(conRespuestas[index]);
                 borrarInfo(dato);
                 insertarButtonConsulta();
             }else if(array == puPreguntas){
-                bot(puPreguntas[index]);
+                bot(puRespuesta[index]);
                 borrarInfo(dato);
                 insertarButtonConsulta();
             }else if(array == noPreguntas){
-                bot(noPreguntas[index]);
+                bot(noRespuesta[index]);
                 borrarInfo(dato);
                 insertarButtonConsulta();
             }
