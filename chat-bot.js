@@ -174,14 +174,28 @@ function usuario(){
     
 }
 
-function insertarButtonConsulta(){
-    var buttonConsultaNueva = document.createElement("button");
-    buttonConsultaNueva.setAttribute("id", "comenzar");
-    buttonConsultaNueva.classList.add("btn","bg-gradient-info","btn-lg");
-    buttonConsultaNueva.setAttribute("style", "max-width:300px;");
-    buttonConsultaNueva.setAttribute("style", "padding-bottom: 2rem;");
-    buttonConsultaNueva.innerText= "Otra consulta";
-    document.getElementById("chat-body").appendChild(buttonConsultaNueva);
+function nuevaConsulta(){
+    var botones = document.createElement("div");
+    botones.setAttribute("id", "botones");
+    botones.classList.add("d-flex", "justify-content-center");
+    var chatBody = document.getElementById("chat-body");
+    chatBody.appendChild(botones);
+    var nuevaConsulta = document.createElement("button");
+    nuevaConsulta.setAttribute("id", "nuevaConsulta");
+    nuevaConsulta.setAttribute("style", "margin: 0px 20px");
+    nuevaConsulta.classList.add("btn","bg-gradient-info","btn-lg");
+    nuevaConsulta.innerText= "Nueva consulta";
+    document.getElementById("botones").appendChild(nuevaConsulta);
+
+}
+
+function terminarConsulta(){
+    var terminarConsulta = document.createElement("button");
+    terminarConsulta.setAttribute("id", "terminarConsulta");
+    terminarConsulta.setAttribute("style", "margin: 0px 20px");
+    terminarConsulta.classList.add("btn","bg-gradient-info","btn-lg");
+    terminarConsulta.innerText= "Terminar consulta";
+    document.getElementById("botones").appendChild(terminarConsulta);
 }
 
 function usuario1(array){
@@ -208,7 +222,6 @@ function usuario1(array){
     definirHora(informacion);
     document.getElementById("chat-body").appendChild(divMain);
 
-
     array.forEach(function(dato, index){
         var li = document.createElement("li");
         li.classList.add("li-" + (index + 1), "pointer", "btn-style");
@@ -220,25 +233,27 @@ function usuario1(array){
             if(array == subPreguntas){
                 bot(subRespuestas[index]);
                 borrarInfo(dato);
-                insertarButtonConsulta();
+                nuevaConsulta();
+                terminarConsulta();
             }else if(array == conPreguntas){
                 bot(conRespuestas[index]);
                 borrarInfo(dato);
-                insertarButtonConsulta();
+                nuevaConsulta();
+                terminarConsulta();
             }else if(array == puPreguntas){
                 bot(puRespuestas[index]);
                 borrarInfo(dato);
-                insertarButtonConsulta();
+                nuevaConsulta();
+                terminarConsulta();
             }else if(array == noPreguntas){
                 bot(noRespuestas[index]);
                 borrarInfo(dato);
-                insertarButtonConsulta();
+                nuevaConsulta();
+                terminarConsulta();
             }
         });
-    
     });
 }
-
 
 function iniciarConsulta(){
     borrarInicio();
