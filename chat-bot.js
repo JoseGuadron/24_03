@@ -177,13 +177,13 @@ function usuario(){
 function nuevaConsulta(){
     var botones = document.createElement("div");
     botones.setAttribute("id", "botones");
-    botones.classList.add("d-flex", "justify-content-center");
+    botones.classList.add("d-flex", "justify-content-center", "mt-4");
     var chatBody = document.getElementById("chat-body");
     chatBody.appendChild(botones);
     var nuevaConsulta = document.createElement("button");
     nuevaConsulta.setAttribute("id", "nuevaConsulta");
-    nuevaConsulta.setAttribute("style", "margin: 0px 20px");
-    nuevaConsulta.classList.add("btn","bg-gradient-info","btn-lg");
+    nuevaConsulta.setAttribute("style", "margin: 0px 10px");
+    nuevaConsulta.classList.add("btn","bg-gradient-success","btn-lg");
     nuevaConsulta.innerText= "Nueva consulta";
     document.getElementById("botones").appendChild(nuevaConsulta);
 
@@ -192,8 +192,8 @@ function nuevaConsulta(){
 function terminarConsulta(){
     var terminarConsulta = document.createElement("button");
     terminarConsulta.setAttribute("id", "terminarConsulta");
-    terminarConsulta.setAttribute("style", "margin: 0px 20px");
-    terminarConsulta.classList.add("btn","bg-gradient-info","btn-lg");
+    terminarConsulta.setAttribute("style", "margin: 0px 10px");
+    terminarConsulta.classList.add("btn","bg-gradient-danger","btn-lg");
     terminarConsulta.innerText= "Terminar consulta";
     document.getElementById("botones").appendChild(terminarConsulta);
 }
@@ -262,4 +262,9 @@ function iniciarConsulta(){
 }
 var btnComenzar = document.getElementById("comenzar");
 btnComenzar.addEventListener("click", iniciarConsulta);
+
+var btnNueva = document.getElementById("nuevaConsulta");
+btnNueva.addEventListener("click", iniciarConsulta);
+var btnTerminar = document.getElementById("terminarConsultar");
+btnTerminar.addEventListener("click", bot("Gracias por preferirnos."));
 
