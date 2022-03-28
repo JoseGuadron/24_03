@@ -7,7 +7,7 @@ const subPreguntas = [  "¿Cuál es el proceso para subscribirme?",
 
 const subRespuestas = [ "<h6>Proceso de suscripción:</h6><ol><li>Realizar el pago en moneda nacional en la cuenta de la DGI – La Gaceta, seleccionando el banco de su predilección, como ingreso no tributario por el tipo de suscripción seleccionada.</li><li> Una vez pagada la suscripción, presentar el comprobante de pago en la ventanilla de servicio a suscriptores, realiza el llenado de formato de apertura de nueva suscripción o renovación para actualizar su información general, habilitandole a lo inmediato el retiro a diario de los ejemplares de manera personal.</li><li>Horario de atención es de Lunes a viernes en horario de 8:00 am a 12:30 pm y de 1:30 pm a 4:00 pm.</li><li>Horario deDisponible a la vez de forma opcional el servicio de envío de sus ejemplares por Correos de Nicaragua. Siendo este un costo adicional, el cual deberá realizarse en efectivo de moneda nacional, en la ventanilla de Correos de Nicaragua, ubicada en nuestras oficinas.</li>", 
                         "<h6>Precios:</h6>Actualmente contamos con dos tipos de subscripción. <ul><li>Por envio: Recibe un copia de La Gaceta mediante correo Nacional. <ul><li>Semestral: C$ 2,718.00</li><li>Anual: C$ 5,236.00</li></ul><li>Premium: puedes acceder a nuestra página web y ver el ejemplar de La Gaceta.<ul><li>Semestral: C$ 1,518.00</li><li>Anual: C$ 3,036.00</li></ul></li></ul>", 
-                        "<h6>Beneficios:</h6>Poder descargar cualquier edicion de la gaceta(suscripción) y recibirlos hasta la puerta de tu casa(Por envío)", 
+                        "<h6>Beneficios:</h6>Poder descargar cualquier edicion de la gaceta(suscripción premium) y recibirlos hasta la puerta de tu casa(Por envío)", 
                         "<h6>Tipos de pago:</h6><ul><li>Semestral</li><li>Anual</li></ul>"]
 
 const conPreguntas = [  "¿Cómo puedo comunicarse con la gaceta?", 
@@ -184,39 +184,6 @@ function mensajeFinal(){
     informacion.setAttribute("style", "text-align: right")
     p.appendChild(informacion); 
     definirHora(informacion);
-    document.getElementById("chat-body").appendChild(divMain);
-}
-
-function mensajeFinal1(){
-    //Div principal
-    var divMain = document.createElement("div");
-    divMain.classList.add("row", "justify-content-start", "mb-2");
-    var div1 = document.createElement("div");
-    //Div col-auto
-    div1.classList.add("col-auto");
-    divMain.appendChild(div1);
-    var div2 = document.createElement("div");
-    div1.appendChild(div2);
-    //div card con gradiente azul
-    div2.classList.add("card");
-    var div3 = document.createElement("div");
-    //div card-body
-    div3.classList.add("card-body", "p-2");
-    div2.appendChild(div3); 
-    //Div texto
-    var p= document.createElement("p");
-    p.innerText = "Gracias por preferirnos";
-    div3.appendChild(p);
-    definirHora(p);
-    document.getElementById("chat-body").appendChild(divMain);
-}
-
-function mensajeFinal2(){
-    var divMain = document.createElement("div");
-    var p= document.createElement("h5");
-    p.innerText = "Gracias por preferirnos";
-    divMain.appendChild(p);
-    definirHora(p);
     document.getElementById("chat-body").appendChild(divMain);
 }
 
