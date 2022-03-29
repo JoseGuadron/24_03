@@ -1,0 +1,13 @@
+#messenger-button{
+    position:fixed;right:6px;border-radius:50%;box-shadow:0 2px 5px 0 rgba(0,0,0,.26);z-index:9998;cursor:pointer;transform-origin:bottom;bottom:20px;opacity:1;transform:scale(1);display:flex;justify-content:center}
+    
+.btn-shown{
+    -webkit-animation:messenger-button-shown-frames .4s cubic-bezier(.62,.28,.23,.99);
+    animation:messenger-button-shown-frames .4s cubic-bezier(.62,.28,.23,.99);
+    -webkit-animation-delay:.2s;animation-delay:.2s;
+    -webkit-animation-fill-mode:both;
+    animation-fill-mode:both
+}
+    
+    
+    #messenger-button.messenger-button-hidden{-webkit-animation:messenger-button-hidden-frames .4s cubic-bezier(.62,.28,.23,.99);animation:messenger-button-hidden-frames .4s cubic-bezier(.62,.28,.23,.99);-webkit-animation-delay:0s;animation-delay:0s;-webkit-animation-fill-mode:both;animation-fill-mode:both}.widget-xs #messenger-button.messenger-button-hidden{-webkit-animation:messenger-button-hidden-frames-xs .4s cubic-bezier(.62,.28,.23,.99);animation:messenger-button-hidden-frames-xs .4s cubic-bezier(.62,.28,.23,.99);-webkit-animation-delay:0s;animation-delay:0s;-webkit-animation-fill-mode:both;animation-fill-mode:both}#messenger-button .messenger-button-icon{border-radius:50%;overflow:hidden;width:100%;height:100%}#messenger-button .messenger-button-icon img{max-width:100%;height:auto}#messenger-button #default-button-icon{margin-top:33%}@keyframes messenger-button-shown-frames{0%{transform:scale(0);bottom:0;opacity:0}1%{transform:scale(1);bottom:0;opacity:0}to{bottom:20px;opacity:1}}@-webkit-keyframes messenger-button-shown-frames{0%{transform:scale(0);bottom:0;opacity:0}1%{transform:scale(1);bottom:0;opacity:0}to{bottom:20px;opacity:1}}@keyframes messenger-button-hidden-frames{0%{bottom:20px;opacity:1;transform:scale(1)}99%{bottom:0;opacity:0;transform:scale(1)}to{bottom:0;opacity:0;transform:scale(0)}}@-webkit-keyframes messenger-button-hidden-frames{0%{bottom:20px;opacity:1;transform:scale(1)}99%{bottom:0;opacity:0;transform:scale(1)}to{bottom:0;opacity:0;transform:scale(0)}}@keyframes messenger-button-hidden-frames-xs{0%{bottom:40px;right:14px;opacity:1;transform:scale(1)}99%{bottom:20px;right:14px;opacity:0;transform:scale(1)}to{bottom:20px;right:14px;opacity:0;transform:scale(0)}}@-webkit-keyframes messenger-button-hidden-frames-xs{0%{bottom:40px;right:14px;opacity:1;transform:scale(1)}99%{bottom:20px;right:14px;opacity:0;transform:scale(1)}to{bottom:20px;right:14px;opacity:0;transform:scale(0)}}
