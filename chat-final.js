@@ -14,11 +14,12 @@ const conPreguntas = [  "¿Cómo puedo comunicarse con la gaceta?",
                         "Cuáles son los horarios de atención?", 
                         "¿Dónde estamos ubicados?"]
 
+
 const conRespuestas = [ "Puedes comunicarte con nosotros a traves de los números <ul><li><a href='tel:+505 2228-3791'>+505 2228-3791</a></li><li><a href='tel:+505 2222-7344'>+505 2222-7344</a></li></ul> También puedes hacerlo mediante el correo electronico <a href='mailto:infolagaceta@sepres.gob.ni'>infolagaceta@sepres.gob.ni</a>", 
                         "Los horarios de atencion son desde las 8:00 am hasta 4:00 pm", 
                         "Puedes visitarnos en las oficinas que se encuentran ubicadas en: Avenida de Bolívar a Chávez, Entrada por parqueo de SERVIGOB, Delegación INSS José Benito Escobar Managua, Nicaragua, 11107. <br><div class='ratio ratio-16x9'><iframe frameborder='0' style='border:0; padding:1rem;' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBcyaGsnPXET3u4jeqQp9hs_MMaT7g4CWE&amp;q=place_id:ChIJLR2-jw1WcY8RO9l2kakC2-E'></iframe></div>"]
 
-                        const nosPreguntas = [  "¿Quiénes somos?", 
+const nosPreguntas = [  "¿Quiénes somos?", 
                         "¿En que año se fundó La Gaceta?"]
 
 const nosRespuestas = [ "La Gaceta Diario Oficial del gobierno de la republica de Nicaragua encargados de la publicidad de leyes, decretos y acuerdos", 
@@ -29,11 +30,13 @@ const noPreguntas = [   "¿Podría agregar noticias a la pagina de la gaceta com
                         "¿Con qué frequencia se actualizan las noticias?", 
                         "¿Cuáles son las fuentes de las noticas mostradas en la página?"]
 
+
 const noRespuestas = [  "No. Solamente el personal autorizado de La Gaceta puede agregar noticias a nuestro sitio.", 
                         "No. Actualmente no contamos con un servicio de newsletter. La única forma de poder ver las noticias es desde nuestra página.", 
                         "Las noticias son actualizadas por nuestro personal periodicamente(Según la necesidad).", 
                         "Las noticias mostradas en nuestro sitio web son de organismos gubernamentes aliados."]
-                        
+
+
 function definirHora(informacion){
     var divHora = document.createElement("div");
     divHora.classList.add("d-flex", "align-items-center", "text-sm", "opacity-6");
@@ -61,6 +64,7 @@ function definirHora(informacion){
     small.innerText = ' ' + hours + ':' + minutes + ' ' + newformat;
     iElemento.appendChild(small);
 }
+
 function borrarInfo(dato){
     var borrarP = document.getElementById("preguntas");
     borrarP.removeAttribute("id");
@@ -73,7 +77,6 @@ function borrarInfo(dato){
     seleccionado.innerText = dato;
     seleccionado.removeAttribute("id");
 }
-
 function posicionarScroll(){
     var div = document.getElementById('chat-body');
     div.scrollTop = '9999';
@@ -132,6 +135,7 @@ function usuario(){
         li.innerText= dato;
         document.getElementById("preguntas").appendChild(li);
         li.addEventListener("click",function(){
+
             switch(index + 1){
                 case 1:
                     bot(dato + ": Selecciona una opción para brindarte ayuda.");
@@ -156,11 +160,12 @@ function usuario(){
             }
         });
     });
+
     var informacion= document.createElement("p");
     document.getElementById("preguntas").appendChild(informacion); 
     definirHora(informacion);
     posicionarScroll();
-
+    
 }
 
 function mensajeFinal(){
@@ -227,6 +232,7 @@ function borrarBotones(){
     var btnNueva = document.getElementById("nuevaConsulta");
     btnNueva.remove();
 }
+
 function usuario1(array){
     //Div principal
     var divMain = document.createElement("div");
@@ -250,6 +256,7 @@ function usuario1(array){
     div2.appendChild(informacion);
     definirHora(informacion);
     document.getElementById("chat-body").appendChild(divMain);
+
     array.forEach(function(dato, index){
         var li = document.createElement("li");
         li.classList.add("li-" + (index + 1), "pointer", "btn-style");
@@ -281,7 +288,6 @@ function usuario1(array){
             }
         });
     });
-
     posicionarScroll();
 }
 
@@ -289,4 +295,5 @@ function iniciarConsulta(){
     bot("Selecciona una opción para brindarte ayuda.");
     usuario();
 }
+
 document.onload = iniciarConsulta();
