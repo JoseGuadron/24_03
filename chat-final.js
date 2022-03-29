@@ -77,10 +77,21 @@ function borrarInfo(dato){
     seleccionado.innerText = dato;
     seleccionado.removeAttribute("id");
 }
+
+function borrarInicio(){
+    var comenzar = document.getElementById("inicio-consulta");
+    var chatBody = document.getElementById("chat-body");
+    chatBody.classList.remove("align-items-center", "justify-content-center" ,"text-center");
+    var mostrarDescarga = document.getElementById("btnDescargarPDF");
+    mostrarDescarga.setAttribute("style", "display: block; !important")
+    comenzar.remove();
+}
+
 function posicionarScroll(){
     var div = document.getElementById('chat-body');
     div.scrollTop = '9999';
 }
+
 function bot(pregunta){
     //Div principal
     var divMain = document.createElement("div");
@@ -292,8 +303,9 @@ function usuario1(array){
 }
 
 function iniciarConsulta(){
+    borrarInicio();
     bot("Selecciona una opción para brindarte ayuda.");
     usuario();
 }
-
-document.onload = iniciarConsulta();
+var btnComenzar = document.getElementById("btnComenzar");
+btnComenzar.addEventListener("click", iniciarConsulta);
