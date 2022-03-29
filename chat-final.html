@@ -12,7 +12,6 @@
     .pointer:hover{
      cursor: pointer;
     }
-
     .btn-style{
         border: 1px solid rgb(216 205 205 / 40%);
         margin: 3px;
@@ -34,32 +33,28 @@
     #chat-body::-webkit-scrollbar {
         width: 8px;
     }
-
     /* Estilos barra (thumb) de scroll */
     #chat-body::-webkit-scrollbar-thumb {
         background: #ccc;
         border-radius: 4px;
     }
-
     #chat-body::-webkit-scrollbar-thumb:active {
         background-color: #999999;
     }
-
     #chat-body::-webkit-scrollbar-thumb:hover {
         background: #b3b3b3;
         box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
     }
-
     /* Estilos track de scroll */
     #chat-body::-webkit-scrollbar-track {
         background: #e1e1e1;
         border-radius: 4px;
     }
-
     #chat-body::-webkit-scrollbar-track:hover, 
     #chat-body::-webkit-scrollbar-track:active {
         background: #d4d4d4;
     }
+
 
     .fa-file-download{
         font-size: 25px;
@@ -69,6 +64,15 @@
 <body>
     <!-- -------- END HEADER ------- -->
 <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+        <div class="container" >
+            <div class="row">
+                <div class="col p-6">
+                    <div class="card max-height-vh-70 min-vh-70">
+                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                            <div class="bg-gradient-info shadow-primary border-radius-lg p-3">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="d-flex align-items-center ">
     <div class="container" >
         <div class="row">
             <div class="col p-6">
@@ -80,6 +84,9 @@
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div class="ms-3 d-flex justify-content-left align-items-center">
                                             <img alt="Image" src="https://test.lagaceta.gob.ni/assets/img/Brand.png" width="200px" height="70px">
+                                            <div class="ms-3">
+                                            <h6 class="mb-0 d-block text-white">La Gaceta</h6>
+                                            <span class="text-sm text-white opacity-8">En linea..</span>
                                             <div class="d-flex flex-column" style="margin-left:2rem">
                                                 <h6 class="mb-0 d-block text-white">La Gaceta</h6>
                                                 <span class="text-sm text-white opacity-8">En linea..</span>
@@ -91,6 +98,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div id="chat-body" class="d-flex card-body flex-column overflow-auto overflow-x-hidden">
                         </div>
                     </div>
                     <div id="chat-body" class="d-flex card-body flex-column overflow-auto overflow-x-hidden">
@@ -135,4 +144,4 @@ const $boton = document.querySelector("#btnDescargarPDF");
     });
 </script>
 </body>
-</html>
+</html> 
