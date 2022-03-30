@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-// Escuchamos el click del botón
-const $boton = document.querySelector("#btnDescargarPDF");
-$boton.addEventListener("click", () => {
+    // Escuchamos el click del botón
+    const $boton = document.querySelector("#btnDescargarPDF");
+    $boton.addEventListener("click", () => {
     const $btnDescargar = document.querySelector("#chat-body")
     const $elementoParaConvertir = $btnDescargar; // <-- Aquí puedes elegir cualquier elemento del DOM
     html2pdf()
