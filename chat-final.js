@@ -83,7 +83,7 @@ function borrarInicio(){
     var chatBody = document.getElementById("chat-body");
     chatBody.classList.remove("align-items-center", "justify-content-center" ,"text-center");
     var mostrarDescarga = document.getElementById("btnDescargarPDF");
-    mostrarDescarga.setAttribute("style", "display: block; !important")
+    mostrarDescarga.setAttribute("style", "display: block !important;")
     comenzar.remove();
 }
 
